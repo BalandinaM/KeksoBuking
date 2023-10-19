@@ -1,17 +1,11 @@
-/*Функция, возвращающая случайное число с плавающей точкой из переданного диапазона включительно. Будет использоваться для генерации временных географических координат в следующем задании. Пример использования функции:
+'use strict'
 
-имя_функции(от, до, количество_знаков_после_запятой); // Результат: число с плавающей точкой из диапазона "от...до" с указанным "количеством знаков после запятой"
+const difference = (num) => {//Делает отрицательное число положительным
+    return Math.abs(num);
+}
 
-Учтите, что диапазон может быть только положительный, включая ноль. А также придумайте, как функция должна вести себя, если передать значение «до» меньшее, чем значение «от», или равное ему. Не забудьте, что в случае с дробными числами диапазон может быть в десятых, сотых, тысячных и т. д. долях. Например, 1.1, 1.2 — корректный диапазон.
- */
+const createGeographyPoint = (a, b, value) => {//Выдает рандомное число с плавающей точкой из заданного диапазона 
 
-
-function createGeographyPoint(a, b) {
-
-    function difference(c) {
-        return Math.abs(c);
-    }
-    
     let num1 = difference(a); 
     let num2 = difference(b);
 
@@ -19,8 +13,23 @@ function createGeographyPoint(a, b) {
         [num1, num2] = [num2, num1];
     }
 
-    return (Math.random() * (num2 - num1) + num1).toFixed(2);
+    return (Math.random() * (num2 - num1) + num1).toFixed(value);
 };
 
-let GeographyPoint = createGeographyPoint(50, -78);
+let GeographyPoint = createGeographyPoint(50, -78, 10);
 console.log(GeographyPoint);
+
+
+const returnRandomNumber = (min, max) => {//Функция, возвращающая случайное целое число из переданного диапазона включительно.
+
+    if (min < 0 || max < 0) {
+      console.log("Error!!! Передаваемые значения должны быть положительными!")
+      return -1;
+    }
+    if (max < min) {
+      [min, max] = [max,min];
+    }
+    min = Math.ceil(min); //округление до ближайшего большего целого
+    max = Math.floor(max);//округление до ближайшего меньшего целого
+    return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
+  };
