@@ -171,3 +171,27 @@ const ADDRESS = LOCATION;
 //console.log(LOCATION);
 console.log(ADDRESS);
 
+const createObject = () => {
+  return {
+    author: {
+      avatar: ,
+    },
+    offer: {
+      title: ,
+      address: ,
+      price: ,
+      type: ,
+      rooms: ,
+      guests: ,
+      checkin: ,
+      checkout: ,
+      features: [],
+      discription: ,
+      photos: [],
+    }
+    location: {
+      x: ,
+      y: ,
+    }
+  }
+};
