@@ -85,7 +85,7 @@ const getArrUrl = () => { //воззвращает массив неповтор
 const arrUrl = getArrUrl();
 console.log(getArrUrl());
 
-const aaa = {
+/*const aaa = {
 };
 
 arrUrl.forEach((avatar, index) => { //из массива адресов делает объект
@@ -94,4 +94,80 @@ arrUrl.forEach((avatar, index) => { //из массива адресов дел�
 
 //let author = {};
 
-console.log(aaa);
+console.log(aaa);*/
+
+
+/////////////////////////////////Создание базы данных
+
+const TITLE = [
+  "Первому арендатору три дня в подарок", 
+  "Сдам двушку задаром", 
+  "Сдается комната на чердаке", 
+  "Однокомнатная квартира посуточно", 
+  "Дуплекс в аренду",  
+  "Трехкомнатная квартира для семьи с детьми"
+];
+
+const Price = {
+  MIN: 1,
+  MAX: 100000,
+};
+
+const TYPE = [
+  "palace", 
+  "flat", 
+  "house", 
+  "bungalow"
+];
+
+const Rooms = {
+  MIN: 1,
+  MAX: 6,
+};
+
+const Guests = {
+  MIN: 1,
+  MAX: 20,
+};
+
+const CHECKIN = [
+  "12:00", 
+  "13:00", 
+  "14:00"
+];
+
+const CHECKOUT = [
+  "12:00", 
+  "13:00", 
+  "14:00"
+];
+
+const FEATURES = [
+  "wifi", 
+  "dishwasher", 
+  "parking", 
+  "washer", 
+  "elevator", 
+  "conditioner"
+];
+
+const DESCRIPTION = [
+  "Это описание какого-то жилья, оно без сомнения прекрасно, и полностью удовлетворяет вашим потребностям, и даже превосходит их. Смело оформляйте сделку и будет вам щастье!"
+];
+
+const PHOTOS = [
+  "http://o0.github.io/assets/images/tokyo/hotel1.jpg", 
+  "http://o0.github.io/assets/images/tokyo/hotel2.jpg", 
+  "http://o0.github.io/assets/images/tokyo/hotel3.jpg"
+];
+
+
+const LOCATION = {
+  x: createGeographyPoint(35.65000,35.70000, 5),
+  y: createGeographyPoint(139.70000,139.80000, 5),
+};
+
+const ADDRESS = LOCATION; 
+//console.log(LOCATION);
+console.log(ADDRESS);
+
