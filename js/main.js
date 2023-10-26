@@ -4,7 +4,7 @@ const difference = (num) => {//Делает отрицательное числ�
     return Math.abs(num);
 }
 
-const createGeographyPoint = (a, b, value) => {//Выдает рандомное число с плавающей точкой из заданного диапазона 
+const getRandomNumberFloatPoint = (a, b, value) => {//Выдает рандомное число с плавающей точкой из заданного диапазона 
 
     let num1 = difference(a); 
     let num2 = difference(b);
@@ -16,7 +16,7 @@ const createGeographyPoint = (a, b, value) => {//Выдает рандомное
     return (Math.random() * (num2 - num1) + num1).toFixed(value);
 };
 
-let GeographyPoint = createGeographyPoint(50, -78, 10);
+let GeographyPoint = getRandomNumberFloatPoint(50, -78, 10);
 //console.log(GeographyPoint);
 
 
@@ -191,8 +191,8 @@ const Y_GeographyPoint = {
 
 
 /*const LOCATION = {
-  x: createGeographyPoint(35.65000,35.70000, 5),
-  y: createGeographyPoint(139.70000,139.80000, 5),
+  x: getRandomNumberFloatPoint(35.65000,35.70000, 5),
+  y: getRandomNumberFloatPoint(139.70000,139.80000, 5),
 };*/
 
 /*const ADDRESS = LOCATION; 
@@ -203,7 +203,7 @@ console.log(ADDRESS);*/
 const createObject = () => {
   const randomAvatarIndex = _.random(0, arrUrl.length - 1);
   const randomTitleIndex = _.random(0, TITLE.length - 1);
-  const randomAddress = createGeographyPoint(X_GeographyPoint.MIN, X_GeographyPoint.MAX, X_GeographyPoint.VALUE) + ', ' + createGeographyPoint(Y_GeographyPoint.MIN, Y_GeographyPoint.MAX, Y_GeographyPoint.VALUE);
+  const randomAddress = getRandomNumberFloatPoint(X_GeographyPoint.MIN, X_GeographyPoint.MAX, X_GeographyPoint.VALUE) + ', ' + getRandomNumberFloatPoint(Y_GeographyPoint.MIN, Y_GeographyPoint.MAX, Y_GeographyPoint.VALUE);
   const randomPrice = returnRandomNumber(Price.MIN, Price.MAX);
   const randomTypeIndex = _.random(0, TYPE.length -1);
   const randomGuests = returnRandomNumber(Guests.MIN, Guests.MAX);
@@ -211,8 +211,8 @@ const createObject = () => {
   const randomCheckout = _.random(0, CHECKOUT.length - 1);
   const randomFeatures = getArrayRandomLenght(FEATURES);
   const randomPhotos = getArrayRandomLenght(PHOTOS);
-  const randomLocationX = createGeographyPoint(X_GeographyPoint.MIN, X_GeographyPoint.MAX, X_GeographyPoint.VALUE);
-  const randomLocationY = createGeographyPoint(Y_GeographyPoint.MIN, Y_GeographyPoint.MAX, Y_GeographyPoint.VALUE);
+  const randomLocationX = getRandomNumberFloatPoint(X_GeographyPoint.MIN, X_GeographyPoint.MAX, X_GeographyPoint.VALUE);
+  const randomLocationY = getRandomNumberFloatPoint(Y_GeographyPoint.MIN, Y_GeographyPoint.MAX, Y_GeographyPoint.VALUE);
   
 
   return {
