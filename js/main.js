@@ -151,9 +151,8 @@ const FEATURES = [
   "conditioner"
 ];
 
-const DESCRIPTION = [
-  "Это описание какого-то жилья, оно без сомнения прекрасно, и полностью удовлетворяет вашим потребностям, и даже превосходит их. Смело оформляйте сделку и будет вам щастье!"
-];
+const DESCRIPTION = 
+  "Это описание какого-то жилья, оно без сомнения прекрасно, и полностью удовлетворяет вашим потребностям, и даже превосходит их. Смело оформляйте сделку и будет вам щастье!";
 
 const PHOTOS = [
   "http://o0.github.io/assets/images/tokyo/hotel1.jpg", 
@@ -161,17 +160,43 @@ const PHOTOS = [
   "http://o0.github.io/assets/images/tokyo/hotel3.jpg"
 ];
 
-
-const LOCATION = {
-  x: createGeographyPoint(35.65000,35.70000, 5),
-  y: createGeographyPoint(139.70000,139.80000, 5),
+const X_GeographyPoint = {
+  MIN: 35.65000,
+  MAX: 35.70000,
+  VALUE: 5,
 };
 
-const ADDRESS = LOCATION; 
+const Y_GeographyPoint = {
+  MIN: 139.70000,
+  MAX: 139.80000,
+  VALUE: 5,
+}
+
+
+/*const LOCATION = {
+  x: createGeographyPoint(35.65000,35.70000, 5),
+  y: createGeographyPoint(139.70000,139.80000, 5),
+};*/
+
+/*const ADDRESS = LOCATION; 
 //console.log(LOCATION);
-console.log(ADDRESS);
+console.log(ADDRESS);*/
 
 const createObject = () => {
+  const randomAvatarIndex = _.random(0, arrUrl.length - 1);
+  const randomTitleIndex = _.random(0, TITLE.length - 1);
+  const randomAddress = createGeographyPoint(X_GeographyPoint.MIN, X_GeographyPoint.MAX, X_GeographyPoint.VALUE) + ', ' + createGeographyPoint(Y_GeographyPoint.MIN, Y_GeographyPoint.MAX, Y_GeographyPoint.VALUE);
+  const randomPrice = returnRandomNumber(Price.MIN, Price.MAX);
+  const randomTypeIndex = _.random(0, TYPE.length -1);
+  const randomGuests = returnRandomNumber(Guests.MIN, Guests.MAX);
+  const randomCheckin = _.random(0, CHECKIN.length - 1);
+  const randomCheckout = _.random(0, CHECKOUT.length - 1);
+  const randomFeatures // надо подумать хорошо, нужен массив случайной длины из предложенных вариантов
+  const randomPhotos //аналогично, надо подумать
+  const randomLocationX = createGeographyPoint(X_GeographyPoint.MIN, X_GeographyPoint.MAX, X_GeographyPoint.VALUE);
+  const randomLocationY = createGeographyPoint(Y_GeographyPoint.MIN, Y_GeographyPoint.MAX, Y_GeographyPoint.VALUE);
+  
+
   return {
     author: {
       avatar: ,
@@ -186,7 +211,7 @@ const createObject = () => {
       checkin: ,
       checkout: ,
       features: [],
-      discription: ,
+      description: DESCRIPTION,
       photos: [],
     }
     location: {
