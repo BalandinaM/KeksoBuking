@@ -192,6 +192,8 @@ const Y_GeographyPoint = {
   VALUE: 5,
 }
 
+const countObjectDataBase = 10;
+
 const createObject = () => {
   /*const randomAvatarIndex = _.random(0, arrUrl.length - 1);
   const randomTitleIndex = _.random(0, TITLE.length - 1);*/
@@ -231,4 +233,8 @@ const createObject = () => {
   }
 };
 
-console.log(createObject());
+//console.log(createObject());
+
+const dataBaseObject = new Array(countObjectDataBase).fill(null).map(() => createObject());
+
+console.log(dataBaseObject);
