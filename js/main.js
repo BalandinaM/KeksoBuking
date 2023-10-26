@@ -70,7 +70,7 @@ const getArrNumberAddZero = () => { //Функция возвращает мас
   for (let i = 0; i < tempArr.length; i++) {
     arrNumberAddZero[i] = addZeros(tempArr[i]);
   }
- return arrNumberAddZero;
+  return arrNumberAddZero;
 }
 
 const getArrUrl = () => { //воззвращает массив неповторяющихся адресов 
@@ -82,8 +82,8 @@ const getArrUrl = () => { //воззвращает массив неповтор
   return arrUrl;
 }
 
-const arrUrl = getArrUrl();
-console.log(getArrUrl());
+//const arrUrl = getArrUrl();
+//console.log(getArrUrl());
 
 const getArrayRandomLenght = (arr) => {
   const maxLength = arr.length;
@@ -189,52 +189,45 @@ const Y_GeographyPoint = {
   VALUE: 5,
 }
 
-
-/*const LOCATION = {
-  x: getRandomNumberFloatPoint(35.65000,35.70000, 5),
-  y: getRandomNumberFloatPoint(139.70000,139.80000, 5),
-};*/
-
-/*const ADDRESS = LOCATION; 
-//console.log(LOCATION);
-console.log(ADDRESS);*/
-
-
 const createObject = () => {
   const randomAvatarIndex = _.random(0, arrUrl.length - 1);
   const randomTitleIndex = _.random(0, TITLE.length - 1);
-  const randomAddress = getRandomNumberFloatPoint(X_GeographyPoint.MIN, X_GeographyPoint.MAX, X_GeographyPoint.VALUE) + ', ' + getRandomNumberFloatPoint(Y_GeographyPoint.MIN, Y_GeographyPoint.MAX, Y_GeographyPoint.VALUE);
+  const randomLocationX = getRandomNumberFloatPoint(X_GeographyPoint.MIN, X_GeographyPoint.MAX, X_GeographyPoint.VALUE);
+  const randomLocationY = getRandomNumberFloatPoint(Y_GeographyPoint.MIN, Y_GeographyPoint.MAX, Y_GeographyPoint.VALUE);
+  const randomAddress = randomLocationX + ', ' + randomLocationY;
   const randomPrice = returnRandomNumber(Price.MIN, Price.MAX);
   const randomTypeIndex = _.random(0, TYPE.length -1);
+  const randomRooms = returnRandomNumber(Rooms.MIN, Rooms.MAX);
   const randomGuests = returnRandomNumber(Guests.MIN, Guests.MAX);
   const randomCheckin = _.random(0, CHECKIN.length - 1);
   const randomCheckout = _.random(0, CHECKOUT.length - 1);
   const randomFeatures = getArrayRandomLenght(FEATURES);
   const randomPhotos = getArrayRandomLenght(PHOTOS);
-  const randomLocationX = getRandomNumberFloatPoint(X_GeographyPoint.MIN, X_GeographyPoint.MAX, X_GeographyPoint.VALUE);
-  const randomLocationY = getRandomNumberFloatPoint(Y_GeographyPoint.MIN, Y_GeographyPoint.MAX, Y_GeographyPoint.VALUE);
+  
   
 
   return {
     author: {
-      avatar: ,
+      avatar: arrUrl[randomAvatarIndex],
     },
     offer: {
-      title: ,
-      address: ,
-      price: ,
-      type: ,
-      rooms: ,
-      guests: ,
-      checkin: ,
-      checkout: ,
-      features: [],
+      title: TITLE[randomTitleIndex],
+      address: randomAddress,
+      price: randomPrice,
+      type: TYPE[randomTypeIndex],
+      rooms: randomRooms,
+      guests: randomGuests,
+      checkin: CHECKIN[randomCheckin],
+      checkout: CHECKOUT[randomCheckout],
+      features: randomFeatures,
       description: DESCRIPTION,
-      photos: [],
-    }
+      photos: randomPhotos,
+    },
     location: {
-      x: ,
-      y: ,
+      x: randomLocationX,
+      y: randomLocationY,
     }
   }
 };
+
+console.log(createObject());
