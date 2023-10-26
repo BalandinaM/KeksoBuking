@@ -82,7 +82,7 @@ const getArrUrl = () => { //воззвращает массив неповтор
   return arrUrl;
 }
 
-//const arrUrl = getArrUrl();
+const arrUrl = getArrUrl();
 //console.log(getArrUrl());
 
 const getArrayRandomLenght = (arr) => {
@@ -101,6 +101,9 @@ const getArrayRandomLenght = (arr) => {
   return array;
 }
 
+const getRandomArrayElement = (elements) => {
+  return elements[_.random(0, elements.length - 1)];
+};
 
 /*const aaa = {
 };
@@ -190,38 +193,36 @@ const Y_GeographyPoint = {
 }
 
 const createObject = () => {
-  const randomAvatarIndex = _.random(0, arrUrl.length - 1);
-  const randomTitleIndex = _.random(0, TITLE.length - 1);
+  /*const randomAvatarIndex = _.random(0, arrUrl.length - 1);
+  const randomTitleIndex = _.random(0, TITLE.length - 1);*/
   const randomLocationX = getRandomNumberFloatPoint(X_GeographyPoint.MIN, X_GeographyPoint.MAX, X_GeographyPoint.VALUE);
   const randomLocationY = getRandomNumberFloatPoint(Y_GeographyPoint.MIN, Y_GeographyPoint.MAX, Y_GeographyPoint.VALUE);
   const randomAddress = randomLocationX + ', ' + randomLocationY;
-  const randomPrice = returnRandomNumber(Price.MIN, Price.MAX);
+  /*const randomPrice = returnRandomNumber(Price.MIN, Price.MAX);
   const randomTypeIndex = _.random(0, TYPE.length -1);
   const randomRooms = returnRandomNumber(Rooms.MIN, Rooms.MAX);
   const randomGuests = returnRandomNumber(Guests.MIN, Guests.MAX);
   const randomCheckin = _.random(0, CHECKIN.length - 1);
   const randomCheckout = _.random(0, CHECKOUT.length - 1);
   const randomFeatures = getArrayRandomLenght(FEATURES);
-  const randomPhotos = getArrayRandomLenght(PHOTOS);
-  
-  
+  const randomPhotos = getArrayRandomLenght(PHOTOS);*/
 
   return {
     author: {
-      avatar: arrUrl[randomAvatarIndex],
+      avatar: getRandomArrayElement(arrUrl),
     },
     offer: {
-      title: TITLE[randomTitleIndex],
+      title: getRandomArrayElement(TITLE),
       address: randomAddress,
-      price: randomPrice,
-      type: TYPE[randomTypeIndex],
-      rooms: randomRooms,
-      guests: randomGuests,
-      checkin: CHECKIN[randomCheckin],
-      checkout: CHECKOUT[randomCheckout],
-      features: randomFeatures,
+      price: returnRandomNumber(Price.MIN, Price.MAX),
+      type: getRandomArrayElement(TYPE),
+      rooms: returnRandomNumber(Rooms.MIN, Rooms.MAX),
+      guests: returnRandomNumber(Guests.MIN, Guests.MAX),
+      checkin: getRandomArrayElement(CHECKIN),
+      checkout: getRandomArrayElement(CHECKOUT),
+      features: getArrayRandomLenght(FEATURES),
       description: DESCRIPTION,
-      photos: randomPhotos,
+      photos: getArrayRandomLenght(PHOTOS),
     },
     location: {
       x: randomLocationX,
