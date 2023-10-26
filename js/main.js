@@ -85,6 +85,23 @@ const getArrUrl = () => { //воззвращает массив неповтор
 const arrUrl = getArrUrl();
 console.log(getArrUrl());
 
+const getArrayRandomLenght = (arr) => {
+  const maxLength = arr.length;
+  const randomLength = returnRandomNumber(1, maxLength);
+  const array = [];
+
+  while (array.length < randomLength) {
+    const randomIndexEl = returnRandomNumber(0, maxLength - 1);
+    const el = arr[randomIndexEl];
+    
+    if (!array.includes(el)) {
+      array.push(el);
+    }
+  }
+  return array;
+}
+
+
 /*const aaa = {
 };
 
@@ -182,6 +199,7 @@ const Y_GeographyPoint = {
 //console.log(LOCATION);
 console.log(ADDRESS);*/
 
+
 const createObject = () => {
   const randomAvatarIndex = _.random(0, arrUrl.length - 1);
   const randomTitleIndex = _.random(0, TITLE.length - 1);
@@ -191,8 +209,8 @@ const createObject = () => {
   const randomGuests = returnRandomNumber(Guests.MIN, Guests.MAX);
   const randomCheckin = _.random(0, CHECKIN.length - 1);
   const randomCheckout = _.random(0, CHECKOUT.length - 1);
-  const randomFeatures // надо подумать хорошо, нужен массив случайной длины из предложенных вариантов
-  const randomPhotos //аналогично, надо подумать
+  const randomFeatures = getArrayRandomLenght(FEATURES);
+  const randomPhotos = getArrayRandomLenght(PHOTOS);
   const randomLocationX = createGeographyPoint(X_GeographyPoint.MIN, X_GeographyPoint.MAX, X_GeographyPoint.VALUE);
   const randomLocationY = createGeographyPoint(Y_GeographyPoint.MIN, Y_GeographyPoint.MAX, Y_GeographyPoint.VALUE);
   
