@@ -16,7 +16,7 @@ const getRandomNumberFloatPoint = (a, b, value) => {//Выдает рандом�
     return (Math.random() * (num2 - num1) + num1).toFixed(value);
 };
 
-let GeographyPoint = getRandomNumberFloatPoint(50, -78, 10);
+//let GeographyPoint = getRandomNumberFloatPoint(50, -78, 10);
 //console.log(GeographyPoint);
 
 
@@ -82,8 +82,7 @@ const getArrUrl = () => { //воззвращает массив неповтор
   return arrUrl;
 }
 
-const arrUrl = getArrUrl();
-//console.log(getArrUrl());
+const arrUrl = getArrUrl()
 
 const getArrayRandomLenght = (arr) => {
   const maxLength = arr.length;
@@ -105,19 +104,19 @@ const getRandomArrayElement = (elements) => {
   return elements[_.random(0, elements.length - 1)];
 };
 
-/*const aaa = {
-};
+const getRandomElementArrayDeleteIt = (elements) => {//берет рандомный элемент из массива а затем удаляет его из массива
+  let El = elements[_.random(0, elements.length - 1)];
+  elements.splice(elements.indexOf(El), 1);
+  return El;
+}
 
-arrUrl.forEach((avatar, index) => { //из массива адресов делает объект
-  aaa[index + 1] = avatar;
-});
-
-//let author = {};
-
-console.log(aaa);*/
-
-
+//
+//
+//
 /////////////////////////////////Создание базы данных
+//
+//
+//
 
 const TITLE = [
   "Первому арендатору три дня в подарок", 
@@ -195,23 +194,13 @@ const Y_GeographyPoint = {
 const countObjectDataBase = 10;
 
 const createObject = () => {
-  /*const randomAvatarIndex = _.random(0, arrUrl.length - 1);
-  const randomTitleIndex = _.random(0, TITLE.length - 1);*/
   const randomLocationX = getRandomNumberFloatPoint(X_GeographyPoint.MIN, X_GeographyPoint.MAX, X_GeographyPoint.VALUE);
   const randomLocationY = getRandomNumberFloatPoint(Y_GeographyPoint.MIN, Y_GeographyPoint.MAX, Y_GeographyPoint.VALUE);
   const randomAddress = randomLocationX + ', ' + randomLocationY;
-  /*const randomPrice = returnRandomNumber(Price.MIN, Price.MAX);
-  const randomTypeIndex = _.random(0, TYPE.length -1);
-  const randomRooms = returnRandomNumber(Rooms.MIN, Rooms.MAX);
-  const randomGuests = returnRandomNumber(Guests.MIN, Guests.MAX);
-  const randomCheckin = _.random(0, CHECKIN.length - 1);
-  const randomCheckout = _.random(0, CHECKOUT.length - 1);
-  const randomFeatures = getArrayRandomLenght(FEATURES);
-  const randomPhotos = getArrayRandomLenght(PHOTOS);*/
 
   return {
     author: {
-      avatar: getRandomArrayElement(arrUrl),
+      avatar: getRandomElementArrayDeleteIt(arrUrl),
     },
     offer: {
       title: getRandomArrayElement(TITLE),
@@ -238,3 +227,4 @@ const createObject = () => {
 const dataBaseObject = new Array(countObjectDataBase).fill(null).map(() => createObject());
 
 console.log(dataBaseObject);
+//console.log(arrUrl);
