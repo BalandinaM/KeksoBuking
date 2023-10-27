@@ -73,18 +73,16 @@ const getArrNumberAddZero = (min, max, needLength) => { //Функция воз�
   return arrNumberAddZero;
 }
 
-console.log(getArrNumberAddZero(1, 5));
+//console.log(getArrNumberAddZero(1, 5));
 
-const getArrUrl = () => { //воззвращает массив неповторяющихся адресов 
-  let tempArr = (getArrNumberAddZero());
+const getArrUrl = (min, max, needLength) => { //воззвращает массив неповторяющихся адресов 
+  let tempArr = (getArrNumberAddZero(min, max, needLength));
   let arrUrl = [];
   for (let i = 0; i <= tempArr.length -1; i++) { //цикл перебирает массив со случайными числами и конкатинирует со строчкой
     arrUrl[i] = `img/avatars/user${tempArr[i]}.png`;
   }
   return arrUrl;
 }
-
-const arrUrl = getArrUrl()
 
 const getArrayRandomLenght = (arr) => {
   const maxLength = arr.length;
@@ -107,9 +105,9 @@ const getRandomArrayElement = (elements) => {
 };
 
 const getRandomElementArrayDeleteIt = (elements) => {//берет рандомный элемент из массива а затем удаляет его из массива
-  let El = elements[_.random(0, elements.length - 1)];
-  elements.splice(elements.indexOf(El), 1);
-  return El;
+  let el = elements[_.random(0, elements.length - 1)];
+  elements.splice(elements.indexOf(el), 1);
+  return el;
 }
 
 //
@@ -119,6 +117,7 @@ const getRandomElementArrayDeleteIt = (elements) => {//берет рандомн
 //
 //
 //
+const arrUrl = getArrUrl(1,10);
 
 const TITLE = [
   "Первому арендатору три дня в подарок", 
