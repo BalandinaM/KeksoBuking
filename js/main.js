@@ -64,14 +64,16 @@ const getArrayRandomUniqueNumber = (min, max) => { //Функция возвра
   
 //console.log(getArrayRandomUniqueNumber(1,10));
 
-const getArrNumberAddZero = () => { //Функция возвращает массив неповторяющихся чисел с 0 перед числом.
-  let tempArr = (getArrayRandomUniqueNumber(1,10));
+const getArrNumberAddZero = (min, max, needLength) => { //Функция возвращает массив неповторяющихся чисел с 0 перед числом.
+  let tempArr = (getArrayRandomUniqueNumber(min, max));
   let arrNumberAddZero = [];
   for (let i = 0; i < tempArr.length; i++) {
-    arrNumberAddZero[i] = addZeros(tempArr[i]);
+    arrNumberAddZero[i] = addZeros(tempArr[i], needLength);
   }
   return arrNumberAddZero;
 }
+
+console.log(getArrNumberAddZero(1, 5));
 
 const getArrUrl = () => { //воззвращает массив неповторяющихся адресов 
   let tempArr = (getArrNumberAddZero());
